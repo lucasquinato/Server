@@ -27,12 +27,6 @@ export function handlerResponse(configs, options) {
                         enterAccount: true,
                         createAccount: false,
                     },
-                    notifies: [
-                        { type: "error", message: "Erro de teste pequeno" },
-                        { type: "error", message: "Erro de teste grande para gerar uma notificação diferente" },
-                        { type: "success", message: "Só uma mensagem de sucesso" },
-                        { type: "warn", message: "Só um aviso aleatório" },
-                    ],
                 });
         }
     }

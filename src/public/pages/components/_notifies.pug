@@ -1,2 +1,26 @@
 #_notifies
-    //-
+    //- Itera as notificações:
+    each notify in notifies
+        .notify-box
+            .notify-icon(class=notify.type)
+
+            p.title=notify.title
+            p.message=notify.message
+
+            .notify-close
+
+script.
+    document.addEventListener("DOMContentLoaded", () => {
+        const notifications = document.querySelectorAll(".notify-box");
+
+        notifications.forEach(n => {
+            const timer = setTimeout(() => closeNotification(n), 5000);
+            const btn = n.querySelector(".notify-close");
+            if (btn) btn.addEventListener("click", () => (clearTimeout(timer), closeNotification(n)));
+        });
+
+        function closeNotification(el) {
+            el.style.opacity = "0";
+            setTimeout(() => el.remove(), 500);
+        }
+    });
